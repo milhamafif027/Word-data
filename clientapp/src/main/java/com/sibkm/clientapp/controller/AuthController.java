@@ -35,10 +35,10 @@ public class AuthController {
             int oneDayInSeconds = 24 * 60 * 60;
             session.setMaxInactiveInterval(oneDayInSeconds); // Mengatur sesi aktif selama satu hari
 
-            return "redirect:/index.html";
+            return "redirect:/home";
         } else {
             // Jika login gagal, redirect ke halaman login gagal
-            return "redirect:/login-fail.html";
+            return "redirect:/login";
         }
     }
 }
