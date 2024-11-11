@@ -1,0 +1,39 @@
+server:
+  port: 8081
+spring: #mengatur koneksi database di spring Boot
+  application:
+        name: Server App Task by Aderio
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_serverapp #Localhost server lokal XAMPP, 3306 adalah port defaultnya, dan db_test adalah nama databasenya
+    username: root #username default pada mysql di xampp
+    password: #secara default kosong
+    driver-class-name: com.mysql.cj.jdbc.Driver #mengacu pada driver JDBC untuk MYSQL
+
+  jpa: #Mengatur JPA (Javascript Persistence API) untuk mengelola database
+    hibernate:
+      ddl-auto: update #opsi untuk mengontrol stuktur tabel di database
+    properties:
+      hibernate:
+        show_sql: true #mengatur query sql yang ditampilkan pada console
+        format_sql: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: aderioharenza08@gmail.com
+    password: mpmu etui usfc ypoy
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  
+  # security:
+  #   user:
+  #     name: user
+  #     password: user
+
+
+        
+        

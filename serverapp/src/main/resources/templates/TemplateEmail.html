@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #00FCA8;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        /* Responsive container and layout */
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background-color: #16DB82;
+            border-radius: 14px; /* Rounded top for green */
+            margin: 40px auto;
+            padding: 20px 0 0 0; /* No padding for the outer container */
+            box-sizing: border-box;
+        }
+
+        .content {
+            background-color: #FFFFFF;
+            border-radius: 0 0 14px 14px; /* Rounded bottom for white */
+            padding: 40px 30px; /* Adjusted for inner padding */
+            box-sizing: border-box;
+            height: 100%; /* Full height to match outer container */
+        }
+
+        h1, p {
+            color: #111111;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 22px;
+            margin-bottom: 10px;
+        }
+
+        .cta-button {
+            background-color: #CCD5AE;
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            color: #2A2A2A;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 12px;
+        }
+
+        img {
+            display: block;
+            margin: 30px auto;
+            width: 150px; /* Adjusted size for responsiveness */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 50%;
+        }
+
+        /* Media Queries for smaller screens */
+        @media only screen and (max-width: 600px) {
+            .content {
+                padding: 20px 15px; /* Reduce padding for smaller screens */
+            }
+
+            h1 {
+                font-size: 28px; /* Smaller font size for mobile */
+            }
+
+            .cta-button {
+                font-size: 14px; /* Slightly larger font for better readability */
+                padding: 10px 20px;
+            }
+
+            img {
+                width: 120px; /* Adjusted size for smaller screens */
+            }
+
+            p {
+                font-size: 13px;
+                line-height: 20px;
+            }
+        }
+
+        /* Adjust for very small screens */
+        @media only screen and (max-width: 400px) {
+            .content {
+                padding: 25px 10px; /* Reduce padding for very small screens */
+            }
+
+            h1 {
+                font-size: 24px; /* Smaller font size for very small screens */
+            }
+
+            .cta-button {
+                font-size: 12px;
+                padding: 8px 16px; /* Adjust button size for small screens */
+            }
+
+            img {
+                width: 100px; /* Adjusted image size for very small screens */
+            }
+
+            p {
+                font-size: 12px;
+                line-height: 18px; /* Adjust line height for small screens */
+            }
+
+            .footer {
+                font-size: 14px; /* Adjust footer font size for small screens */
+            }
+        }
+    </style>
+</head>
+<body style="background-color: #00FCA8; margin: 10px; padding: 20px;">
+
+    <!-- Outer Container -->
+    <div class="container">
+
+        <!-- Logo Section -->
+        <div style="text-align: center;">
+            <img src="https://img.freepik.com/free-vector/shopping-cart-supermarket-logo-template_23-2148470295.jpg?t=st=1728675682~exp=1728679282~hmac=69d35ccaf9546053b6be3f935a52c5a01c83e4e1c471b6340b882ef3ab528e35&w=740" alt="Shopping Cart Logo" />
+        </div>
+
+        <!-- Content Section -->
+        <div class="content full-width">
+            <h1>Terimakasih, <span th:text="${name}"></span></h1>
+            <p>Pesanan anda mengenai <strong><span th:text="${barang}"></span></strong> sudah kami proses, silahkan tunggu hingga pesanan anda sampai. Apabila ada kendala terkait pengiriman pesanan anda, silahkan hubungi customer service kami.</p>
+            <p>Thank you and have a nice day!</p>
+
+            <!-- CTA Button -->
+            <a href="https://www.instagram.com/aderiorh/" class="cta-button">Hubungi Customer Service</a>
+        </div>
+    </div>
+
+</body>
+</html>

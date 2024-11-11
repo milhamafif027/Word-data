@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body class="bg-light">
+    <div class="container">
+        <div class="row justify-content-center" style="margin-top: 100px;">
+            <div class="col-md-4">
+                <h1 class="text-center">Login</h1>
+                <form id="loginForm" action="#" method="post" class="card p-4">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" class="form-control" required />
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Login</button>
+                    <div id="error" class="text-danger mt-2" style="display: none;"></div>
+                    <div id="message" class="text-success mt-2" style="display: none;"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#loginForm').on('submit', function (e) {
+                e.preventDefault(); // Mencegah pengiriman form default
+
+                const username = $('#username').val();
+                const password = $('#password').val();
+
+                $.ajax({
+                    url: 'http://localhost:8082/api/login', // Endpoint login
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ username: username, password: password }),
+                    success: function (response) {
+                        console.log("berhasil")
+                        // localStorage.setItem('authToken', response.sessionId); // Simpan token sesi
+                        // window.location.href = '/home'; // Arahkan ke halaman home
+                    },
+                    error: function (xhr) {
+                        const errorMessage = xhr.responseJSON ? xhr.responseJSON.message : 'Login failed';
+                        $('#error').text(errorMessage).show(); // Tampilkan pesan kesalahan
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

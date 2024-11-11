@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/main}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country</title>
+</head>
+
+<body>
+    <!-- Content -->
+    <section class="container mt-4" layout:fragment="content">
+        <div class="card mx-auto" style="background-color: #007BFF; color: white; width: 80%; max-width: 1000px;">
+            <h1 class="fw-bold text-center mt-3">List of Country</h1>
+            <div class="card-body">
+                <!-- Button Create -->
+                <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#create">
+                    Tambah Country
+                </button>
+                <!-- Data Tabel -->
+                <div class="table-responsive">
+                    <table id="tb-country" class="table table-striped table-bordered" width="100%" cellspacing="0"
+                        style="border-radius: 5px; overflow: hidden; border-collapse: separate; border-spacing: 0;">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Nomor</th>
+                                <th>Code</th>
+                                <th>Name</th>
+                                <th>Region</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                    </table>
+
+                    <!-- Modal Create -->
+                    <div class="modal fade" id="create" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                        aria-labelledby="createLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5 fw-bold" id="createLabel">
+                                        Tambah Country
+                                    </h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                    <div class="modal-body">
+                                        <form id="createCountryForm">
+                                            <!-- Nama -->
+                                        <div class="input-group flex-nowrap mt-3">
+                                            <span class="input-group-text" style="background-color: #007BFF; color: white;"
+                                                id="addon-wrapping">Nama</span>
+                                            <input type="text" class="form-control" placeholder="Nama Region"
+                                                aria-label="name" aria-describedby="addon-wrapping" id="create-name" required />
+                                        </div>
+                                        <!-- Code -->
+                                        <div class="input-group flex-nowrap mt-3">
+                                            <span class="input-group-text" style="background-color: #007BFF; color: white;"
+                                                id="addon-wrapping">Code</span>
+                                            <input type="text" class="form-control" placeholder="Nama Kode"
+                                                aria-label="name" aria-describedby="addon-wrapping" id="create-code" required />
+                                        </div>
+                                        <!-- Region -->
+                                        <div class="input-group flex-nowrap mt-3">
+                                            <span class="input-group-text" style="background-color: #007BFF; color: white;"
+                                                id="addon-wrapping">Region</span>
+                                            <select id="regionSelect" class="form-select" aria-label="Default select example" required>
+                                                <option value="" hidden>Choose your Region</option>
+                                            </select>
+                                        </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+                                            Tutup
+                                        </button>
+                                        <button id="create-country" type="button" class="btn btn-success btn-sm">
+                                            Simpan
+                                        </button>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Modal Create -->
+
+                     <!-- modal detail -->
+                    <div class="modal fade" id="detail" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                    aria-labelledby="detailLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 fw-bold" id="detailLabel">
+                                    Detail Country
+                                </h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- id -->
+                                <div class="input-group flex-nowrap mt-2">
+                                    <span class="input-group-text" style="background-color: #007BFF; color: white;"
+                                        id="addon-wrapping">Id</span>
+                                    <input type="text" class="form-control" aria-label="id"
+                                        aria-describedby="addon-wrapping" id="detail-id" disabled />
+                                </div>
+
+                                <!-- nama -->
+                                <div class="input-group flex-nowrap mt-4 mb-2">
+                                    <span class="input-group-text" style="background-color: #007BFF; color: white;"
+                                        id="addon-wrapping">nama</span>
+                                    <input type="text" class="form-control" aria-label="name"
+                                        aria-describedby="addon-wrapping" id="detail-name" disabled />
+                                </div>
+
+                                <!-- code -->
+                                <div class="input-group flex-nowrap mt-4 mb-2">
+                                    <span class="input-group-text" style="background-color: #007BFF; color: white;"
+                                        id="addon-wrapping">Kode</span>
+                                    <input type="text" class="form-control" aria-label="name"
+                                        aria-describedby="addon-wrapping" id="detail-code" disabled />
+                                </div>
+
+                                <!-- code -->
+                                <div class="input-group flex-nowrap mt-4 mb-2">
+                                    <span class="input-group-text" style="background-color: #007BFF; color: white;"
+                                        id="addon-wrapping">Region</span>
+                                    <input type="text" class="form-control" aria-label="name"
+                                        aria-describedby="addon-wrapping" id="detail-region" disabled />
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+                                    Tutup
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal Update -->
+                <div class="modal fade" id="update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="updateLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 fw-bold" id="updateLabel">
+                            Update Detail
+                        </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Nama -->
+                        <div class="input-group flex-nowrap mt-3">
+                            <span class="input-group-text" style="background-color: #007BFF; color: white;" id="addon-wrapping">Nama</span>
+                            <input type="text" class="form-control" placeholder="Nama Region"
+                                    aria-label="name" aria-describedby="addon-wrapping" id="update-name" required />
+                        </div>
+                        <!-- Code -->
+                        <div class="input-group flex-nowrap mt-3">
+                            <span class="input-group-text" style="background-color: #007BFF; color: white;" id="addon-wrapping">Code</span>
+                            <input type="text" class="form-control" placeholder="Nama Kode"
+                                    aria-label="name" aria-describedby="addon-wrapping" id="update-code" required />
+                        </div>
+                        <!-- Region -->
+                        <div class="input-group flex-nowrap mt-3">
+                            <span class="input-group-text" style="background-color: #007BFF; color: white;" id="addon-wrapping">Region</span>
+                            <select id="update-regionSelect" class="form-select" aria-label="Default select example" required>
+                                <option value="" hidden>Choose your Region</option>
+                            </select>
+                        </div>
+                        <input type="hidden" id="update-id" /> <!-- Hidden input to store the country ID -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Tutup</button>
+                        <button id="update-country" type="button" class="btn btn-success btn-sm">Simpan</button>
+                    </div>
+                </div>
+                </div>
+                </div>
+                <!-- End of Modal Update -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <div layout:fragment="js">
+        <script th:src="@{/js/Country.js}"></script>
+    </div>
+</body>
+
+</html>
