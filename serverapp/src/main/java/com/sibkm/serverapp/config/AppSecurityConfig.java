@@ -36,25 +36,24 @@ public class AppSecurityConfig {
             .requestMatchers(HttpMethod.POST, "/login")
             .permitAll()
             .anyRequest()
-            .authenticated()
-        )
-         .sessionManagement(session -> session
-            .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
-        )
-        // .formLogin(form -> form
-        //     .loginPage("/login")
-        //     .defaultSuccessUrl("/index", true)
-        //     .permitAll()
-        // )
-        // .logout(logout -> logout
-        //     .logoutUrl("/logout")
-        //     .logoutSuccessUrl("/login?logout=true")
-        //     .permitAll()
-        // )
-        // .sessionManagement(session -> session
-        //     .sessionFixation().migrateSession()
-        //     .maximumSessions(1)
-        // )
+            .authenticated())
+            .sessionManagement(session -> session
+                .sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
+            // .formLogin(form -> form
+            // .loginPage("/login")
+            // .defaultSuccessUrl("/index", true)
+            // .permitAll()
+            // )
+            // .logout(logout -> logout
+            // .logoutUrl("/logout")
+            // .logoutSuccessUrl("/login?logout=true")
+            // .permitAll()
+            // )
+            // .sessionManagement(session -> session
+            // .sessionFixation().migrateSession()
+            // .maximumSessions(1)
+            // )
+            
         .userDetailsService(appUserDetailService)
         .httpBasic(Customizer.withDefaults());
 
