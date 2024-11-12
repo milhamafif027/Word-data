@@ -14,8 +14,8 @@
                         <div class="login-card">
                             <div class="login-header">
                                 <img th:src="@{/images/front-end.png}" alt="Logo" class="img-fluid">
-                                <h3>Welcome Back!</h3>
-                                <p class="text-muted">Please login to continue</p>
+                                <h3>Selamat Datang!</h3>
+                                <p class="text-muted">Silahkan Login Terlebih Dahulu</p>
                             </div>
                             <form id="loginForm">
                                 <div class="form-group mb-4">
@@ -47,11 +47,15 @@
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-login">
-                                    Sign In
+                                    Masuk
                                     <span class="spinner-border spinner-border-sm d-none" 
                                           role="status" 
                                           aria-hidden="true"></span>
                                 </button>
+                                <div class="text-center">
+                                  <span class="text-muted">Belum Punya akun ?</span>
+                                  <a href="/register" class="text-primary text-decoration-none ms-1">Register Disini</a>
+                              </div>
                             </form>
                         </div>
                     </div>

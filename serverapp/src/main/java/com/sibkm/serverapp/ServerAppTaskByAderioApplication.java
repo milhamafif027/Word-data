@@ -8,7 +8,7 @@ public class ServerAppTaskByAderioApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ServerAppTaskByAderioApplication.class, args);
-		System.out.println("Testing");
+		System.out.println("\nServerapp is running..");
 	}
 
 }
