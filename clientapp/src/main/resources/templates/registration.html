@@ -6,7 +6,7 @@
   layout:decorate="~{layout/auth}"
 >
   <head>
-    <title>Login - SIBKM FSD 07</title>
+    <title>Registration - SIBKM FSD 07</title>
   </head>
   <body>
     <div layout:fragment="content">
@@ -22,9 +22,57 @@
                     class="img-fluid"
                   />
                   <h3>Selamat Datang!</h3>
-                  <p class="text-muted">Silahkan Login Terlebih Dahulu</p>
+                  <p class="text-muted">Silahkan Daftar Akun Baru!</p>
                 </div>
-                <form id="loginForm">
+                <form id="registrationForm">
+                  <div class="form-group mb-2">
+                    <label for="name">Name</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-white">
+                        <i class="fas fa-lock text-muted"></i>
+                      </span>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        class="form-control border-start-0"
+                        placeholder="Enter your name"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group mb-4">
+                    <label for="email">Email</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-white">
+                        <i class="fas fa-lock text-muted"></i>
+                      </span>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-control border-start-0"
+                        placeholder="Enter your email"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group mb-4">
+                    <label for="telp">Telp</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-white">
+                        <i class="fas fa-lock text-muted"></i>
+                      </span>
+                      <input
+                        type="text"
+                        id="telp"
+                        name="telp"
+                        class="form-control border-start-0"
+                        placeholder="Enter your telp"
+                        required
+                      />
+                    </div>
+                  </div>
                   <div class="form-group mb-4">
                     <label for="username">Username</label>
                     <div class="input-group">
@@ -58,7 +106,7 @@
                     </div>
                   </div>
                   <button type="submit" class="btn btn-login">
-                    Masuk
+                    Daftar
                     <span
                       class="spinner-border spinner-border-sm d-none"
                       role="status"
@@ -66,11 +114,11 @@
                     ></span>
                   </button>
                   <div class="text-center">
-                    <span class="text-muted">Belum Punya akun ?</span>
+                    <span class="text-muted">Sudah Punya akun ?</span>
                     <a
-                      href="/registration"
+                      href="/login"
                       class="text-primary text-decoration-none ms-1"
-                      >Register Disini</a
+                      >Masuk Disini</a
                     >
                   </div>
                 </form>
@@ -84,26 +132,35 @@
     <div layout:fragment="js">
       <script>
         $(document).ready(function () {
-          $("#loginForm").on("submit", function (e) {
+          $("#registrationForm").on("submit", function (e) {
             e.preventDefault(); // Mencegah pengiriman form default
 
             const username = $("#username").val();
             const password = $("#password").val();
+            const name = $("#name").val();
+            const email = $("#email").val();
+            const telp = $("#telp").val();
 
             $.ajax({
-              url: "http://localhost:8082/api/login", // Endpoint login
+              url: "http://localhost:8082/api/registration", // Endpoint login
               type: "POST",
               contentType: "application/json",
-              data: JSON.stringify({ username: username, password: password }),
+              data: JSON.stringify({
+                name: name,
+                email: email,
+                telp: telp,
+                username: username,
+                password: password,
+              }),
               success: function (response) {
                 console.log("berhasil");
                 // localStorage.setItem('authToken', response.sessionId); // Simpan token sesi
-                window.location.href = "/home"; // Arahkan ke halaman home
+                window.location.href = "/login"; // Arahkan ke halaman home
               },
               error: function (xhr) {
                 const errorMessage = xhr.responseJSON
                   ? xhr.responseJSON.message
-                  : "Login failed";
+                  : "Registration failed";
                 $("#error").text(errorMessage).show(); // Tampilkan pesan kesalahan
               },
             });
