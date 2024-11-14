@@ -26,12 +26,12 @@ public class RegionController {
     public String getAll(Model model) {
         model.addAttribute("regions", regionService.getAll());
         model.addAttribute("isActive", "region");
-        return "/region/index"; 
+        return "/region/index";
     }
 
     // Get By Id
     @GetMapping("/{id}")
-    public String getById(@PathVariable Integer id, Model model){
+    public String getById(@PathVariable Integer id, Model model) {
         model.addAttribute("region", regionService.getByid(id));
         model.addAttribute("isActive", "region");
         return "region/detail-form";
@@ -54,7 +54,7 @@ public class RegionController {
 
     // Update View
     @GetMapping("update/{id}")
-    public String updateView(@PathVariable Integer id, Region region, Model model){
+    public String updateView(@PathVariable Integer id, Region region, Model model) {
         model.addAttribute("region", regionService.getByid(id));
         model.addAttribute("isActive", "region");
         return "region/update-form";
@@ -62,14 +62,14 @@ public class RegionController {
 
     // Update Region
     @PutMapping("/{id}")
-    public String update(@PathVariable Integer id, Region region){
+    public String update(@PathVariable Integer id, Region region) {
         regionService.update(id, region);
         return "redirect:/region";
     }
 
     // Delete Region
     @DeleteMapping("/{id}")
-    public String delete(@PathVariable Integer id, Region region){
+    public String delete(@PathVariable Integer id, Region region) {
         regionService.delete(id);
         return "redirect:/region";
     }

@@ -9,7 +9,14 @@
     <title>Login - SIBKM FSD 07</title>
   </head>
   <body>
+    <!-- content -->
     <div layout:fragment="content">
+      <!-- btn back to welcome-->
+      <div class="btn-back-container">
+        <a th:href="@{/}" class="btn btn-back">
+          <i class="fas fa-arrow-left"></i> Back
+        </a>
+      </div>
       <div class="login-page">
         <div class="login-container">
           <div class="row justify-content-center">
@@ -57,7 +64,7 @@
                       />
                     </div>
                   </div>
-                  <button type="submit" class="btn btn-login">
+                  <button type="submit" class="btn btn-login fw-bold">
                     Masuk
                     <span
                       class="spinner-border spinner-border-sm d-none"
