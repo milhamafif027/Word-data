@@ -36,12 +36,17 @@ public class RegionService {
         .getBody();
   }
 
+  // Region count
+  public int countRegions() {
+    return getAll().size();
+  }
+
   // Get By Id
   public Region getByid(Integer id) {
     log.info("endpoint serverapp = {}", url.concat("/" + id));
     return restTemplate
-      .exchange(url.concat("/" + id), HttpMethod.GET, null, Region.class)
-      .getBody();
+        .exchange(url.concat("/" + id), HttpMethod.GET, null, Region.class)
+        .getBody();
   }
 
   // Create
@@ -60,14 +65,14 @@ public class RegionService {
   public Region update(Integer id, Region region) {
     HttpEntity<Region> request = new HttpEntity<Region>(region);
     return restTemplate
-      .exchange(url.concat("/" + id), HttpMethod.PUT, request, Region.class)
-      .getBody();
+        .exchange(url.concat("/" + id), HttpMethod.PUT, request, Region.class)
+        .getBody();
   }
 
   // Delete
-  public Region delete(Integer id){
+  public Region delete(Integer id) {
     return restTemplate.exchange(url.concat("/" + id), HttpMethod.DELETE, null, Region.class)
-    .getBody();
+        .getBody();
   }
 
 }

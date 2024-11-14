@@ -100,12 +100,13 @@ $(document).ready(() => {
                 }),
                 success: function () {
                     $("#create").modal('hide');
-                    Datatable.ajax.reload(); // Assuming 'table' is your data table
                     $("#createCountryForm")[0].reset(); // Reset form
                     Swal.fire({
                         icon: 'success',
                         title: 'Country Created!',
                         text: 'The country has been added successfully!'
+                    }).then(() => {
+                        location.reload(); // Refresh halaman
                     });
                 },
                 error: function (xhr, status, error) {
@@ -189,11 +190,12 @@ $("#update-country").click(function() {
             }),
             success: function() {
                 $('#update').modal('hide'); // Close the modal
-                table.ajax.reload(); // Refresh the data table (if applicable)
                 Swal.fire({
                     icon: 'success',
                     title: 'Updated!',
                     text: 'The country has been updated successfully!'
+                }).then(() => {
+                    location.reload(); // Refresh halaman
                 });
             },
             error: function(xhr, status, error) {
@@ -325,14 +327,13 @@ function deleteCountry(id) {
                     dataType: "json",
                     contentType: "application/json",
                     success: (res) => {
-                        // Refresh DataTable setelah data dihapus
                         $("#tb-country").DataTable().ajax.reload();
-
-                        // Menampilkan pesan sukses setelah penghapusan
                         swalWithBootstrapButtons.fire({
                             title: "Terhapus",
                             text: "Data country telah terhapus",
                             icon: "success",
+                        }).then(() => {
+                            location.reload(); // Refresh halaman
                         });
                     },
                     error: (err) => {

@@ -24,15 +24,16 @@ public class CountryController {
 
     // Get All
     @GetMapping
-    public String getAll(Model model){
+    public String getAll(Model model) {
         model.addAttribute("countries", countryService.getAll());
+        model.addAttribute("countryCount", countryService.countCountry());
         model.addAttribute("isActive", "country");
         return "country/index";
     }
 
     // Get By Id
     @GetMapping("/{id}")
-    public String getById(@PathVariable Integer id, Model model){
+    public String getById(@PathVariable Integer id, Model model) {
         model.addAttribute("country", countryService.getById(id));
         model.addAttribute("isActive", "country");
         return "country/detail-form";
@@ -40,7 +41,7 @@ public class CountryController {
 
     // Create View
     @GetMapping("/create")
-    public String createView(Model model){
+    public String createView(Model model) {
         model.addAttribute("country", new Country());
         model.addAttribute("regions", regionService.getAll());
         model.addAttribute("isActive", "country");
@@ -49,14 +50,14 @@ public class CountryController {
 
     // Create Country
     @PostMapping
-    public String create(Country country){
+    public String create(Country country) {
         countryService.create(country);
         return "redirect:/country";
     }
 
     // Update View
     @GetMapping("/update/{id}")
-    public String updateView(@PathVariable Integer id, Country country, Model model){
+    public String updateView(@PathVariable Integer id, Country country, Model model) {
         model.addAttribute("country", countryService.getById(id));
         model.addAttribute("regions", regionService.getAll());
         model.addAttribute("isActive", "country");
@@ -65,14 +66,14 @@ public class CountryController {
 
     // Update Country
     @PutMapping("/{id}")
-    public String update(@PathVariable Integer id, Country country){
+    public String update(@PathVariable Integer id, Country country) {
         countryService.update(id, country);
         return "redirect:/country";
     }
 
     // Delete
     @DeleteMapping("{id}")
-    public String delete(@PathVariable Integer id, Country country){
+    public String delete(@PathVariable Integer id, Country country) {
         countryService.delete(id);
         return "redirect:/country";
     }

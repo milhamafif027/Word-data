@@ -1,138 +1,157 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorate="~{layout/main}">
-<head>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/main}"
+>
+  <head>
     <title>Home - World Data Management</title>
     <style>
-        .main-content {
-            min-height: 90vh;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
+      .main-content {
+        min-height: 90vh;
+        padding: 40px 20px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      }
 
-        .main-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+      .main-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        max-width: 1000px;
+        margin: 0 auto;
+      }
 
-        .welcome-title {
-            color: #007bff;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+      .welcome-title {
+        color: #007bff;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
 
-        .welcome-subtitle {
-            color: #6c757d;
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-        }
+      .welcome-subtitle {
+        color: #6c757d;
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+      }
 
-        .feature-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
+      .feature-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin: 40px 0;
+      }
 
-        .feature-card {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
+      .feature-card {
+        background: #f8f9fa;
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
+      .feature-card:hover {
+        transform: translateY(-5px);
+      }
 
-        .feature-icon {
-            font-size: 2.5rem;
-            color: #007bff;
-            margin-bottom: 15px;
-        }
+      .feature-icon {
+        font-size: 2.5rem;
+        color: #007bff;
+        margin-bottom: 15px;
+      }
 
-        .feature-title {
-            color: #343a40;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
+      .feature-title {
+        color: #343a40;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
 
-        .feature-description {
-            color: #6c757d;
-            font-size: 0.9rem;
-        }
+      .feature-description {
+        color: #6c757d;
+        font-size: 0.9rem;
+      }
 
-        .footer-section {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 1px solid #dee2e6;
-            text-align: center;
-        }
+      .footer-section {
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 1px solid #dee2e6;
+        text-align: center;
+      }
 
-        .footer-text {
-            color: #6c757d;
-            font-size: 0.9rem;
-        }
+      .footer-text {
+        color: #6c757d;
+        font-size: 0.9rem;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div layout:fragment="content">
-        <div class="main-content">
-            <div class="main-card">
-                <!-- Welcome Section -->
-                <div class="text-center mb-5">
-                    <h1 class="welcome-title">Selamat Datang di Pusat Data Dunia</h1>
-                    <p class="welcome-subtitle">Jelajahi informasi lengkap tentang negara dan wilayah di seluruh dunia</p>
-                </div>
+      <div class="main-content">
+        <div class="main-card">
+          <!-- Welcome Section -->
+          <div class="text-center mb-5">
+            <h1 class="welcome-title">Selamat Datang di Pusat Data Dunia</h1>
+            <p class="welcome-subtitle">
+              Jelajahi informasi lengkap tentang negara dan wilayah di seluruh
+              dunia
+            </p>
+          </div>
 
-                <!-- Feature Section -->
-                <div class="feature-section">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <h3 class="feature-title">Data Negara</h3>
-                        <p class="feature-description">Akses informasi lengkap tentang berbagai negara di seluruh dunia</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-map-marked-alt"></i>
-                        </div>
-                        <h3 class="feature-title">Informasi Region</h3>
-                        <p class="feature-description">Pelajari karakteristik unik dari setiap wilayah geografis</p>
-                    </div>
-                </div>
-
-                <!-- Statistik Section -->
-                <div class="text-center mt-5">
-                    <div class="d-flex justify-content-center">
-                        <div class="d-flex flex-column align-items-center mx-5">
-                            <h3 class="text-primary"><i class="fas fa-globe-americas"></i> 195+</h3>
-                            <p class="text-muted">Negara</p>
-                        </div>
-                        <div class="d-flex flex-column align-items-center mx-5">
-                            <h3 class="text-primary"><i class="fas fa-map"></i> 7+</h3>
-                            <p class="text-muted">Benua</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Footer Section -->
-                <div class="footer-section">
-                    <p class="footer-text mb-1">© 2024 Pusat Data Dunia</p>
-                    <small class="footer-text">Versi 1.0 - Diperbarui terakhir: November 2024</small>
-                </div>
+          <!-- Feature Section -->
+          <div class="feature-section">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <h3 class="feature-title">Data Negara</h3>
+              <p class="feature-description">
+                Akses informasi lengkap tentang berbagai negara di seluruh dunia
+              </p>
             </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-map-marked-alt"></i>
+              </div>
+              <h3 class="feature-title">Informasi Region</h3>
+              <p class="feature-description">
+                Pelajari karakteristik unik dari setiap wilayah geografis
+              </p>
+            </div>
+          </div>
+
+          <!-- Statistik Section -->
+          <div class="text-center mt-5">
+            <div class="d-flex justify-content-center">
+              <div class="d-flex flex-column align-items-center mx-5">
+                <h3 class="text-primary">
+                  <i class="fas fa-globe-americas"></i>
+                  <span th:text="${countryCount}">0</span>
+                </h3>
+                <p class="text-muted">Negara</p>
+              </div>
+              <div class="d-flex flex-column align-items-center mx-5">
+                <h3 class="text-primary">
+                  <i class="fas fa-map"></i>
+                  <span th:text="${regionCount}">0</span>
+                </h3>
+                <p class="text-muted">Benua</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer Section -->
+          <div class="footer-section">
+            <p class="footer-text mb-1">© 2024 Pusat Data Dunia</p>
+            <small class="footer-text"
+              >Versi 1.0 - Diperbarui terakhir: November 2024</small
+            >
+          </div>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

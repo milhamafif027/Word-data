@@ -30,6 +30,11 @@ public class CountryService {
         }).getBody();
     }
 
+    // Country count
+    public int countCountry() {
+        return getAll().size();
+    }
+
     // Get By Id
     public Country getById(Integer id) {
         log.info("endpoint serverapp = {}", url.concat("/" + id));
@@ -39,29 +44,29 @@ public class CountryService {
     }
 
     // Create
-    public Country create(Country country){
+    public Country create(Country country) {
         return restTemplate
-            .exchange(
-                url,
-                HttpMethod.POST,
-                new HttpEntity<Country>(country),
-                new ParameterizedTypeReference<Country>() {
-                })
-            .getBody();
+                .exchange(
+                        url,
+                        HttpMethod.POST,
+                        new HttpEntity<Country>(country),
+                        new ParameterizedTypeReference<Country>() {
+                        })
+                .getBody();
     }
 
     // Update
-    public Country update(Integer id, Country country){
+    public Country update(Integer id, Country country) {
         HttpEntity<Country> request = new HttpEntity<Country>(country);
         return restTemplate
-          .exchange(url.concat("/" + id), HttpMethod.PUT, request, Country.class)
-          .getBody();
+                .exchange(url.concat("/" + id), HttpMethod.PUT, request, Country.class)
+                .getBody();
     }
 
     // delete
-    public Country delete(Integer id){
+    public Country delete(Integer id) {
         return restTemplate.exchange(url.concat("/" + id), HttpMethod.DELETE, null, Country.class)
-        .getBody();
+                .getBody();
     }
 
 }
