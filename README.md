@@ -1,0 +1,2 @@
+# Word-data
+Projek simulasi 
