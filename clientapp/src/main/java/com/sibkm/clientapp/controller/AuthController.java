@@ -16,4 +16,6 @@ public class AuthController {
     public String registrationPage() {
         return "registration"; // Menampilkan halaman registration, bukan redirect
     }
+
+    
 }

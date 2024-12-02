@@ -92,26 +92,25 @@
       <script>
         $(document).ready(function () {
           $("#loginForm").on("submit", function (e) {
-            e.preventDefault(); // Mencegah pengiriman form default
+            e.preventDefault(); 
 
             const username = $("#username").val();
             const password = $("#password").val();
 
             $.ajax({
-              url: "http://localhost:8082/api/login", // Endpoint login
+              url: "http://localhost:8082/api/login",
               type: "POST",
               contentType: "application/json",
               data: JSON.stringify({ username: username, password: password }),
               success: function (response) {
                 console.log("berhasil");
-                // localStorage.setItem('authToken', response.sessionId); // Simpan token sesi
-                window.location.href = "/home"; // Arahkan ke halaman home
+                window.location.href = "/home";
               },
               error: function (xhr) {
                 const errorMessage = xhr.responseJSON
                   ? xhr.responseJSON.message
                   : "Login failed";
-                $("#error").text(errorMessage).show(); // Tampilkan pesan kesalahan
+                $("#error").text(errorMessage).show();
               },
             });
           });
